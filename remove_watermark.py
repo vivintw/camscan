@@ -12,14 +12,14 @@ import os.path
 def usage():
     _WARN = '\033[91m'
     _END = '\033[0m'
-    print ""
-    print 'USAGE :'
-    print _WARN+'python remove_watermark.py /path/to/file/file.pdf'+_END
-    print 'replaces the old file with the modified file'
-    print '(OR)'
-    print _WARN+'python remove_watermark.py /path/to/file/file.pdf /path/to/modified/file/file.py'+_END
-    print 'makes a new file with the changes'
-    print ""
+    print("")
+    print('USAGE :')
+    print(_WARN+'python remove_watermark.py /path/to/file/file.pdf'+_END)
+    print('replaces the old file with the modified file')
+    print('(OR)')
+    print(_WARN+'python remove_watermark.py /path/to/file/file.pdf /path/to/modified/file/file.py'+_END)
+    print('makes a new file with the changes')
+    print("")
     exit(0)
 
 def wmark_remove(from_file,to_file):
