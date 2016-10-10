@@ -4,7 +4,7 @@ import os.path
 
 '''
     Author: Vivin Thomas Wilson
-    version : 1.0
+    version : 1.1
     python verson : Python 2.7.10 
     Description : Removes "Scanned by camscan" watermark from pdf 
 '''
@@ -28,7 +28,19 @@ def wmark_remove(from_file,to_file):
     f.close()
 
     f = open(to_file,"w")
-    f.write("\n".join([i for i in data if not "(Scanned by CamScanner) Tj" in i]))
+
+    # remove the entire text object 
+    i = 0
+    while i < len(data):
+        if  "(Scanned by CamScanner) Tj" in data[i]:
+            while not "BT" in data[i]: 
+                i -= 1
+            while "ET" not in data[i]: 
+                del data[i]
+            del data[i]
+        i += 1
+
+    f.write("\n".join(data))
     f.close()
 
 if __name__ == '__main__':
